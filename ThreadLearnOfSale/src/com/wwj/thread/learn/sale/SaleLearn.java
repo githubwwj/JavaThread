@@ -2,8 +2,7 @@ package com.wwj.thread.learn.sale;
 
 class Ticket implements Runnable{
 	
-	int ticket=100;
-	
+	int ticket=10;
 	@Override
 	public void run() {
 		
@@ -24,14 +23,11 @@ class Ticket implements Runnable{
 					break;
 				}
 			}
-			
 		}
 	}
-	
 }
 
 public class SaleLearn {
-
 	public static void main(String[] args) {
 		
 		Ticket ticket=new Ticket();
