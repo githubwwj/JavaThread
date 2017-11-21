@@ -1,7 +1,6 @@
 package com.wwj.thread.learn.sale;
 
 class Ticket implements Runnable{
-	
 	int ticket=10;
 	@Override
 	public void run() {
@@ -11,9 +10,8 @@ class Ticket implements Runnable{
 			synchronized(this){
 				if(ticket>0){
 					try {
-						Thread.sleep(10);
+						Thread.sleep(400);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					System.out.println(Thread.currentThread().getName()+"===="+ticket);
@@ -29,14 +27,12 @@ class Ticket implements Runnable{
 
 public class SaleLearn {
 	public static void main(String[] args) {
-		
 		Ticket ticket=new Ticket();
 		
 		Thread bob=new Thread(ticket,"bob");
 		Thread mike=new Thread(ticket,"mike");
-		
 		bob.start();
 		mike.start();
-
+		System.out.println(Thread.currentThread().getName()+"======over=");
 	}
 }
