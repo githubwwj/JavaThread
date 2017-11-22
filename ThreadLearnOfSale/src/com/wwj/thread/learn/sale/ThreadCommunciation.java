@@ -1,5 +1,6 @@
 package com.wwj.thread.learn.sale;
 
+
 class Resource{  //煤
 	String name;
 	int weight;
