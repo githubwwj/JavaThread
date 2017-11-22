@@ -8,27 +8,28 @@ class Resource{  //煤
 }
 
 class Input implements Runnable{  //小卡车输入煤
-	Resource res;
+	private Resource res;
+	private int x=0;
 	Input(Resource res){
 		this.res=res;
 	}
 
 	@Override
 	public void run() {
-		int x=0;
+		
 		while(true){
-			synchronized (res) {  //bob(活)   lili(睡着)
+			synchronized (res) {  
 				if(res.sumCar>99){
 					break;
 				}
 				while(res.flag){
 					try {
-						res.wait();  // 
+						res.wait();   //bob(睡)   lili(睡)
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
 				}
-				try {Thread.sleep(100);} catch (InterruptedException e) {e.printStackTrace();}
+				try {Thread.sleep(10);} catch (InterruptedException e) {e.printStackTrace();}
 				if(x==0){
 					res.name="精煤";
 					res.weight=6;
@@ -39,8 +40,8 @@ class Input implements Runnable{  //小卡车输入煤
 				x=(x+1)%2;
 				res.flag=true;
 				res.sumCar++;
-				System.out.println(Thread.currentThread().getName()+"=====拉了一车"+res.name+"煤========="+res.sumCar+"车");
-				res.notifyAll(); //
+				System.out.println(Thread.currentThread().getName()+"=====拉了一车"+res.name+"煤========="+res.sumCar+"车"); // bob 车   lili车
+				res.notifyAll(); 
 			}
 		}
 	}
@@ -58,17 +59,17 @@ class Output implements Runnable{  //锅炉烧煤
 	@Override
 	public void run() {
 		while(true){
-			synchronized (res) {    //mike(睡着)    jenny(睡着)
+			synchronized (res) {    
 				while(!res.flag){
 					try {
-						res.wait();  //
+						res.wait();  //mike(睡着)  jenny(睡着)
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
 				}
 					
-				try {Thread.sleep(100);} catch (InterruptedException e) {e.printStackTrace();}
-				System.out.println(Thread.currentThread().getName()+"=======烧了一车="+res.name+"======"+res.weight+"吨========"+res.sumCar+"车");
+				try {Thread.sleep(10);} catch (InterruptedException e) {e.printStackTrace();}
+				System.out.println(Thread.currentThread().getName()+"=======烧了一车"+res.name+"======"+res.weight+"吨========"+res.sumCar+"车");
 				res.name=null;
 				res.weight=0;
 				res.flag=false;
@@ -103,7 +104,6 @@ public class ThreadCommunciationTwo {
 		
 		mike.start();
 		jenny.start();
-		
 		
 
 	}
