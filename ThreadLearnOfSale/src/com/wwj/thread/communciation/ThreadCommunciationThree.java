@@ -153,19 +153,31 @@ public class ThreadCommunciationThree {
 		int i=0;
 		
 		//============================测试代码开始===============
-		while(i<10){
+		while(i<6){
 			try {
-				Thread.sleep(1);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			System.out.println("==========线程数量==="+res.quitCount);
 			if(res.quitCount==0){
+				System.out.println("==========线程退出了第"+(i+1)+"次");
+				try {
+					Thread.sleep(800);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				res = startThread();
 				i++;
 			}
 		}
 		//============================测试代码结束===============
 		
+		try {
+			Thread.sleep(800);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		System.out.println(Thread.currentThread().getName()+"=============");
 		
 		
