@@ -153,7 +153,7 @@ public class ThreadCommunciationThree {
 		int i=0;
 		
 		//============================测试代码开始===============
-		while(i<6){
+		while(i<10){
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
