@@ -152,6 +152,9 @@ public class ThreadCommunciationThree {
 		Resource res = startThread();
 		int i=0;
 		
+		/**
+		 * 这是一段测试代码
+		 */
 		while(i<10){
 			try {
 				Thread.sleep(1);
