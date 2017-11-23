@@ -1,4 +1,4 @@
-package com.wwj.thread.communciation;
+package com.wwj.thread.communciation.three;
 
 class Resource{  //煤
 	String name;
