@@ -12,7 +12,7 @@ class Resource{  //煤
 	Lock lock=new ReentrantLock();
 	Condition productMonitor;
 	Condition consumeMonitor;
-	int quitCount=4;
+	int quitCount=4;  //判断线程有没有执行完成
 	
 	public Condition getProductMonitor(){
 		if(null==productMonitor){
@@ -152,9 +152,7 @@ public class ThreadCommunciationThree {
 		Resource res = startThread();
 		int i=0;
 		
-		/**
-		 * 这是一段测试代码
-		 */
+		//============================测试代码开始===============
 		while(i<10){
 			try {
 				Thread.sleep(1);
@@ -166,6 +164,7 @@ public class ThreadCommunciationThree {
 				i++;
 			}
 		}
+		//============================测试代码结束===============
 		
 		System.out.println(Thread.currentThread().getName()+"=============");
 		
