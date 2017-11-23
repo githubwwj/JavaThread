@@ -12,6 +12,7 @@ class Resource{  //煤
 	Lock lock=new ReentrantLock();
 	Condition productMonitor;
 	Condition consumeMonitor;
+	int quitCount=4;
 	
 	public Condition getProductMonitor(){
 		if(null==productMonitor){
@@ -86,6 +87,8 @@ class Input implements Runnable{  //小卡车输入煤
 				}
 				
 			}
+		
+			res.quitCount--;
 //		}
 	}
 	
@@ -137,6 +140,7 @@ class Output implements Runnable{  //锅炉烧煤
 				
 //			}
 		}
+		res.quitCount--;
 	}
 	
 }
@@ -145,35 +149,47 @@ public class ThreadCommunciationThree {
 
 	public static void main(String[] args) {
 		
-		for(int i=0;i<10;i++){
-			Resource res=new Resource();  //煤
-			
-			Input input=new Input(res);  //拉煤
-			Output output=new Output(res);  //烧煤
-			
-			Thread bob=new Thread(input,"bob");
-			Thread lili=new Thread(input,"lili");
-			
-			Thread mike=new Thread(output,"mike");
-			Thread jenny=new Thread(output,"jenny");
-			
-			
-			bob.start();
-			lili.start();
-			
-			mike.start();
-			jenny.start();
-			
+		Resource res = startThread();
+		int i=0;
+		
+		while(i<10){
 			try {
-				Thread.sleep(4000);
+				Thread.sleep(1);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			if(res.quitCount==0){
+				res = startThread();
+				i++;
+			}
 		}
+		
+		System.out.println(Thread.currentThread().getName()+"=============");
 		
 		
 		
 
+	}
+
+	private static Resource startThread() {
+		Resource res=new Resource();  //煤
+		
+		Input input=new Input(res);  //拉煤
+		Output output=new Output(res);  //烧煤
+		
+		Thread bob=new Thread(input,"bob");
+		Thread lili=new Thread(input,"lili");
+		
+		Thread mike=new Thread(output,"mike");
+		Thread jenny=new Thread(output,"jenny");
+		
+		
+		bob.start();
+		lili.start();
+		
+		mike.start();
+		jenny.start();
+		return res;
 	}
 
 }
