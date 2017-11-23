@@ -180,9 +180,6 @@ public class ThreadCommunciationThree {
 		}
 		System.out.println(Thread.currentThread().getName()+"=============");
 		
-		
-		
-
 	}
 
 	private static Resource startThread() {
