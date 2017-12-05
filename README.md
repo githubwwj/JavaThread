@@ -5,6 +5,7 @@
 |---|----|-----|
 |1|JAVA中线程两个哥们卖火车票1|http://www.iqiyi.com/w_19rv0y5hp5.html|
 |2|JAVA两个哥们卖火票的另一种实现方式2|http://www.iqiyi.com/w_19rv0py6z5.html|
+|3|03-JAVA丰富多彩的线程状态|http://www.iqiyi.com/w_19rv15wwyh.html|
 |4|04-JAVA死锁|http://www.iqiyi.com/w_19rv23zlxl.html|
 |5|05-JAVA两个哥们卖火车票内存分配|http://www.iqiyi.com/w_19rv2npqf5.html|
 |6|06-JAVA线程间通信|http://www.iqiyi.com/w_19rv29gw7d.html|
@@ -15,11 +16,6 @@
 |11|11-JAVA线程结束|http://www.iqiyi.com/w_19ruoqfoqt.html|
 |12|12-JAVA多线程涉及到的单例|http://www.iqiyi.com/w_19ruomgj15.html|
 |13|13-JAVA守护线程和Join线程|http://www.iqiyi.com/w_19ruof25kx.html|
-
-
-
-
-
 
 
 
