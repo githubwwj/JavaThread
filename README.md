@@ -16,7 +16,7 @@
 |11|11-JAVA线程结束|http://www.iqiyi.com/w_19ruoqfoqt.html|
 |12|12-JAVA多线程涉及到的单例|http://www.iqiyi.com/w_19ruomgj15.html|
 |13|13-JAVA守护线程和Join线程|http://www.iqiyi.com/w_19ruof25kx.html|
-|14|14-JAVA线程数线程池|http://www.iqiyi.com/w_19rupb2g2x.html|
+|14|14-JAVA线程池|http://www.iqiyi.com/w_19rupb2g2x.html|
 
 
 有道云笔记地址
